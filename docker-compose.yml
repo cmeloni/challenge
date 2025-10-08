@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    env_file:
+      - .env
+    volumes:
+      - ./localdata:/var/lib/postgresql/data:delegated
+      - ./initdb:/docker-entrypoint-initdb.d:delegated
+    ports:
+      - ${DB_PORT}:5432
+    networks:
+      red:
+
+networks:
+  red:
