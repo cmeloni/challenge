@@ -9,3 +9,7 @@ create table collection.events
     end_time    timestamp               not null,
     created_at  timestamp default now() not null
 );
+
+alter table collection.events
+    add constraint events_pk
+        primary key (id);
